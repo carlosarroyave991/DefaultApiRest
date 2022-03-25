@@ -1,4 +1,4 @@
-package com.Prueba1.demo.Models;
+package com.Prueba1.cine.Models;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -13,7 +13,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Entity
 @Table(name="usuario")
-public class UsuarioModel {
+public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

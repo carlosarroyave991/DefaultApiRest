@@ -1,7 +1,7 @@
-package com.Prueba1.demo.Controllers;
+package com.Prueba1.cine.Controllers;
 
-import com.Prueba1.demo.Models.UsuarioModel;
-import com.Prueba1.demo.Services.UsuarioService;
+import com.Prueba1.cine.Models.Usuario;
+import com.Prueba1.cine.Services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,22 +16,22 @@ public class UsuarioController {
     UsuarioService usuarioService;
 
     @GetMapping()
-    public List<UsuarioModel> obtenerUsuarios(){
+    public List<Usuario> obtenerUsuarios(){
         return usuarioService.obtenerUsuarios();
     }
 
     @PostMapping
-    public UsuarioModel guardarUsuario(@RequestBody UsuarioModel usuarioModel){
+    public Usuario guardarUsuario(@RequestBody Usuario usuarioModel){
         return usuarioService.guardarUsuario(usuarioModel);
     }
 
     @GetMapping(path = "/{id}")
-    public Optional<UsuarioModel> findById(@PathVariable("id") Long id){
+    public Optional<Usuario> findById(@PathVariable("id") Long id){
         return usuarioService.findById(id);
     }
 
     @GetMapping("/query")
-    public List<UsuarioModel> findByPrioridad(@RequestParam("prioridad") Integer priority){
+    public List<Usuario> findByPrioridad(@RequestParam("prioridad") Integer priority){
         return usuarioService.findByPrioridad(priority);
     }
 

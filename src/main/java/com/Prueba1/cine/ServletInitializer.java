@@ -1,4 +1,4 @@
-package com.Prueba1.demo;
+package com.Prueba1.cine;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;

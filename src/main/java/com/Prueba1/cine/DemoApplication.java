@@ -1,4 +1,4 @@
-package com.Prueba1.demo;
+package com.Prueba1.cine;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

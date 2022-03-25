@@ -1,7 +1,7 @@
-package com.Prueba1.demo.Services;
+package com.Prueba1.cine.Services;
 
-import com.Prueba1.demo.Models.UsuarioModel;
-import com.Prueba1.demo.Repositories.UsuarioRepository;
+import com.Prueba1.cine.Models.Usuario;
+import com.Prueba1.cine.Repositories.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,19 +14,19 @@ public class UsuarioService {
     @Autowired
     UsuarioRepository usuarioRepository;
 
-    public Optional<UsuarioModel> findById(Long id){
+    public Optional<Usuario> findById(Long id){
         return usuarioRepository.findById(id);
     }
 
-    public List<UsuarioModel> obtenerUsuarios(){
-        return (List<UsuarioModel>)usuarioRepository.findAll();
+    public List<Usuario> obtenerUsuarios(){
+        return (List<Usuario>)usuarioRepository.findAll();
     }
 
-    public UsuarioModel guardarUsuario(UsuarioModel usuarioModel){
+    public Usuario guardarUsuario(Usuario usuarioModel){
         return usuarioRepository.save(usuarioModel);
     }
 
-    public List<UsuarioModel> findByPrioridad(Integer prioridad){
+    public List<Usuario> findByPrioridad(Integer prioridad){
         return usuarioRepository.findByPrioridad(prioridad);
     }
 
