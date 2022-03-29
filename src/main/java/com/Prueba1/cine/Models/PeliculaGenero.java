@@ -18,15 +18,15 @@ public class PeliculaGenero {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "pelicula_id")
-    private Integer peliculaId;
+    /*@Column(name = "pelicula_id")
+    private Long peliculaId;
     @Column(name= "genero_id")
-    private Integer generoId;
+    private Long generoId;*/
     @ManyToOne
-    @JoinColumn(name="pelicula_id", insertable = false,updatable = false, foreignKey = @ForeignKey(name = "pelicula_id"))
+    @JoinColumn(name="pelicula_id", insertable = false,updatable = false, foreignKey = @ForeignKey(name = "pelicula_fk2"))
     private Pelicula pelicula;
 
     @ManyToOne
-    @JoinColumn(name = "genero_id", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "genero_id"))
+    @JoinColumn(name = "genero_id", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "genero_fk1"))
     private Genero genero;
 }

@@ -30,9 +30,9 @@ public class Pelicula {
     private LocalDateTime fechaCreacion;
     private Boolean estado;
 
-    @OneToMany(mappedBy = "pelicula")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "pelicula")
     private List<Vista> vistas;
 
-    @OneToMany(mappedBy = "pelicula")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "pelicula")
     private List<PeliculaGenero> peliculaGeneros;
 }

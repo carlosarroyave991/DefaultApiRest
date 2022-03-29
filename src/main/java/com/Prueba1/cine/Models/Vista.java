@@ -17,18 +17,18 @@ public class Vista {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name="cliente_id")
-    private Integer clienteId;
+    /*@Column(name="cliente_id")
+    private Long clienteId;
     @Column(name = "pelicula_id")
-    private Integer peliculaId;
+    private Long peliculaId;*/
     @Column(name = "fecha_creacion")
     private LocalDateTime fechaCreacion;
 
     @ManyToOne
-    @JoinColumn(name= "cliente_id", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "cliente_id"))
+    @JoinColumn(name= "cliente_id", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "cliente_fk1"))
     private Cliente cliente;
 
     @ManyToOne
-    @JoinColumn(name="pelicula_id", insertable = false,updatable = false, foreignKey = @ForeignKey(name = "pelicula_id"))
+    @JoinColumn(name="pelicula_id", insertable = false,updatable = false, foreignKey = @ForeignKey(name = "pelicula_fk1"))
     private Pelicula pelicula;
 }

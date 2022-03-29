@@ -24,7 +24,6 @@ public class Genero {
     @Column(name = "fecha_creacion")
     private LocalDateTime fechaCreacion;
 
-    @OneToMany
-    @JoinColumn(name = "genero")
+    @OneToMany(mappedBy = "genero")
     private List<PeliculaGenero> peliculaGeneros;
 }
