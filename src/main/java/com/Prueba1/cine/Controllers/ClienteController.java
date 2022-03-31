@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -23,26 +24,25 @@ public class ClienteController {
     }
 
     @GetMapping(path = "/{id}")
-    public Optional<Cliente> findById(@PathVariable("id") Long id){
-        return clienteService.findById(id);
+    public ResponseEntity<Optional<Cliente>> findById(@PathVariable("id") Long id){
+        return new ResponseEntity<>(clienteService.findById(id), HttpStatus.OK);
     }
 
     @GetMapping("/query")
-    public List<Cliente> findByNombre(@RequestParam("nombre") String nombre){
-        return clienteService.findByNombre(nombre);
+    public ResponseEntity<List<Cliente>> findByNombre(@RequestParam("nombre") String nombre){
+        return new ResponseEntity<>(clienteService.findByNombre(nombre), HttpStatus.OK);
     }
     @PostMapping
-    public Cliente saveClient(@RequestBody Cliente cliente){
-        return clienteService.saveClient(cliente);
+    public ResponseEntity<Cliente> save(@RequestBody Cliente cliente){
+        cliente.setEstado(true);
+        cliente.setFechaCreacion(LocalDateTime.now());
+        return new ResponseEntity<>(clienteService.save(cliente), HttpStatus.OK);
     }
 
     @DeleteMapping(path = "/{id}")
-    public String deleteById(@PathVariable("id") Long id){
-        boolean ok = clienteService.deleteClient(id);
-        if(ok == true){
-            return "se elimino el cliente con id "+id;
-        }else{
-            return "No se encontro el usuario con id "+id;
-        }
+    public ResponseEntity<Void> deleteById(@PathVariable("id") Long id){
+        clienteService.deleteById(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
+
 }
