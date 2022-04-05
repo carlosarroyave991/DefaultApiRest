@@ -3,6 +3,7 @@ package com.Prueba1.cine.Services;
 import com.Prueba1.cine.Errors.DefaultException;
 import com.Prueba1.cine.Models.Cliente;
 import com.Prueba1.cine.Repositories.ClienteRepository;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -33,13 +34,12 @@ public class ClienteService {
         }
     }
 
-    public Cliente save(Cliente cliente){
+    public Cliente save(@NotNull Cliente cliente){
         Optional<Cliente> result = clienteRepository.findById(cliente.getId());
         if(result.isPresent()){
             throw new DefaultException(ID_YA_EXISTE);
-        }else{
-            return clienteRepository.save(cliente);
         }
+        return clienteRepository.save(cliente);
     }
 
     public List<Cliente> findByNombre(String nombre){

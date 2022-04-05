@@ -5,9 +5,15 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface PeliculaRepository extends CrudRepository<Pelicula, Long> {
 
-    public abstract List<Pelicula> findByNombre(String nombre);
+    List<Pelicula> findByNombre(String nombre);
+    void deleteById(Long id);
+    Optional<Pelicula> findById(Long id);
+    List<Pelicula> findAll();
+    Pelicula save(Pelicula pelicula);
+
 }
